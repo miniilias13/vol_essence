@@ -74,3 +74,19 @@ AddEventHandler('volerEssence:ajouter', function(amount)
         xPlayer.addInventoryItem('essence', math.floor(amount))
     end
 end)
+RegisterNetEvent('volerEssence:marqueurPolice')
+AddEventHandler('volerEssence:marqueurPolice', function(coords)
+    local blip = AddBlipForCoord(coords)
+
+    SetBlipSprite(blip, 161) -- Icône d'alerte
+    SetBlipScale(blip, 1.2)
+    SetBlipColour(blip, 1) -- Couleur rouge
+
+    BeginTextCommandSetBlipName("STRING")
+    AddTextComponentString("Vol d'essence")
+    EndTextCommandSetBlipName(blip)
+
+    -- Supprime le blip après 30 secondes
+    Citizen.Wait(30000)
+    RemoveBlip(blip)
+end)
