@@ -1,1 +1,17 @@
+fx_version 'cerulean'
+game 'gta5'
 
+author 'TonNom'
+description 'Script de vol d\'essence pour ESX'
+version '1.0.0'
+
+client_scripts {
+    'cl_vol_essence.lua'
+}
+
+server_scripts {
+    '@es_extended/locale.lua',
+    'sv_vol_essence.lua'
+}
+
+shared_script '@es_extended/imports.lua'
