@@ -40,6 +40,10 @@ AddEventHandler('volerEssence:demarrer', function()
                 -- Réduit le niveau d'essence du véhicule
                 SetVehicleFuelLevel(vehicle, fuelLevel - essenceVolée)
                 ESX.ShowNotification("Vous avez volé ~g~" .. essenceVolée .. "L d'essence")
+
+                -- Notifie la police
+                TriggerServerEvent('volerEssence:alertePolice', GetEntityCoords(ped))
+
             else
                 ESX.ShowNotification("Ce véhicule n'a plus d'essence !")
             end
